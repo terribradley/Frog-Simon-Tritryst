@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   colors: ["red", "blue", "green", "yellow"],
   guessSequence: [],
   correctSequence: [],
+  guessNumber: 0,
   redOn: false,
   blueOn: false,
   greenOn: false,
@@ -52,8 +53,13 @@ export default Ember.Component.extend({
     guessColor(color) {
       this.get("guessSequence").push(color);
       this.get("guessSequence").push("");
-      console.log(this.get("guessSequence"));
-      console.log(this.get("correctSequence"));
+      if(this.get("guessSequence")[this.get("guessNumber")] !== this.get("correctSequence")[this.get("guessNumber")]) {
+        this.set("guessSequence", [])
+        alert("You are wrong")
+      }
+      console.log(this.get("guessSequence")[this.get("guessNumber")]);
+      console.log(this.get("correctSequence")[this.get("guessNumber")]);
+      this.set('guessNumber', this.get('guessNumber')+2)
     },
 
     submitGuess() {
@@ -75,7 +81,6 @@ export default Ember.Component.extend({
         var iterator=0
         var that= this;
         var displaySequence = setInterval(function(){
-          console.log("loop iterates: " + iterator)
           if(that.get("correctSequence")[iterator]==="red") {
             that.set('blueOn', false);
             that.set('greenOn', false);
@@ -111,6 +116,7 @@ export default Ember.Component.extend({
         alert("You are wrong!")
       }
       this.set("guessSequence", [])
+      this.set('guessNumber', 0)
     }
   }
 });
