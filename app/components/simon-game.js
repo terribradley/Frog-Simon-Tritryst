@@ -9,114 +9,64 @@ export default Ember.Component.extend({
   blueOn: false,
   greenOn: false,
   yellowOn: false,
+  On: true,
+  buttonsLive: false,
   actions: {
     newGame() {
       var firstColor = Math.floor(Math.random() * 4);
       this.set("correctSequence", [this.get("colors")[firstColor]]);
-      this.get("correctSequence").push("")
-      var iterator=0
-      var that= this;
-      var displaySequence = setInterval(function(){
-        if(that.get("correctSequence")[iterator]==="red") {
-          that.set('blueOn', false);
-          that.set('greenOn', false);
-          that.set('yellowOn', false);
-          that.set('redOn', true);
-        } else if(that.get("correctSequence")[iterator]==="blue") {
-          that.set('blueOn', true);
-          that.set('greenOn', false);
-          that.set('yellowOn', false);
-          that.set('redOn', false);
-        } else if(that.get("correctSequence")[iterator]==="green") {
-          that.set('blueOn', false);
-          that.set('greenOn', true);
-          that.set('yellowOn', false);
-          that.set('redOn', false);
-        } else if(that.get("correctSequence")[iterator]==="yellow") {
-          that.set('blueOn', false);
-          that.set('greenOn', false);
-          that.set('yellowOn', true);
-          that.set('redOn', false);
-        } else {
-          that.set('blueOn', false);
-          that.set('greenOn', false);
-          that.set('yellowOn', false);
-          that.set('redOn', false);
-        }
+      this.get("correctSequence").push("");
+      var iterator = 0;
+      var that = this;
+      var displaySequence = setInterval(function() {
+        that.set('blueOn', false);
+        that.set('greenOn', false);
+        that.set('yellowOn', false);
+        that.set('redOn', false);
+        that.set(that.get("correctSequence")[iterator]+'On', true);
         iterator++;
         if(iterator === that.get("correctSequence").length){
           clearInterval(displaySequence);
         }
       }, 1000);
+      this.set("buttonsLive", true);
     },
 
     guessColor(color) {
+      var guessNum = this.get('guessNumber')
       this.get("guessSequence").push(color);
       this.get("guessSequence").push("");
-      if(this.get("guessSequence")[this.get("guessNumber")] !== this.get("correctSequence")[this.get("guessNumber")]) {
-        this.set("guessSequence", [])
-        alert("You are wrong")
-      }
-      console.log(this.get("guessSequence")[this.get("guessNumber")]);
-      console.log(this.get("correctSequence")[this.get("guessNumber")]);
-      this.set('guessNumber', this.get('guessNumber')+2)
-    },
-
-    submitGuess() {
-      var guessCorrect = true;
-      if(this.get("guessSequence").length !== this.get("correctSequence").length) {
-        guessCorrect=false;
-      }
-      else {
-        for(var i=0; i<this.get("guessSequence").length; i++) {
-          if (this.get("guessSequence")[i] !== this.get("correctSequence")[i]) {
-            guessCorrect=false;
-          }
+      if(this.get("guessSequence")[guessNum] !== this.get("correctSequence")[guessNum]) {
+        this.set('guessNumber', 0);
+        this.set("guessSequence", []);
+        this.set("buttonsLive", false);
+        alert("You are wrong");
+      } else {
+        if(guessNum===this.get("correctSequence").length-2) {
+          this.set('guessNumber', 0);
+          this.set("guessSequence", []);
+          var nextColor = Math.floor(Math.random() * 4);
+          this.get("correctSequence").push(this.get("colors")[nextColor]);
+          this.get("correctSequence").push("");
+          var iterator=0;
+          var that = this;
+          this.set("buttonsLive", false);
+          var displaySequence = setInterval(function() {
+            that.set('blueOn', false);
+            that.set('greenOn', false);
+            that.set('yellowOn', false);
+            that.set('redOn', false);
+            that.set(that.get("correctSequence")[iterator]+'On', true);
+            iterator++;
+            if(iterator === that.get("correctSequence").length){
+              clearInterval(displaySequence);
+            }
+          }, 1000);
+          this.set("buttonsLive", true);
+        } else {
+          this.set('guessNumber', guessNum+2)
         }
       }
-      if(guessCorrect) {
-        var nextColor = Math.floor(Math.random() * 4);
-        this.get("correctSequence").push(this.get("colors")[nextColor]);
-        this.get("correctSequence").push("");
-        var iterator=0
-        var that= this;
-        var displaySequence = setInterval(function(){
-          if(that.get("correctSequence")[iterator]==="red") {
-            that.set('blueOn', false);
-            that.set('greenOn', false);
-            that.set('yellowOn', false);
-            that.set('redOn', true);
-          } else if(that.get("correctSequence")[iterator]==="blue") {
-            that.set('blueOn', true);
-            that.set('greenOn', false);
-            that.set('yellowOn', false);
-            that.set('redOn', false);
-          } else if(that.get("correctSequence")[iterator]==="green") {
-            that.set('blueOn', false);
-            that.set('greenOn', true);
-            that.set('yellowOn', false);
-            that.set('redOn', false);
-          } else if(that.get("correctSequence")[iterator]==="yellow") {
-            that.set('blueOn', false);
-            that.set('greenOn', false);
-            that.set('yellowOn', true);
-            that.set('redOn', false);
-          } else {
-            that.set('blueOn', false);
-            that.set('greenOn', false);
-            that.set('yellowOn', false);
-            that.set('redOn', false);
-          }
-          iterator++;
-          if(iterator === that.get("correctSequence").length){
-            clearInterval(displaySequence);
-          }
-        }, 1000);
-      } else {
-        alert("You are wrong!")
-      }
-      this.set("guessSequence", [])
-      this.set('guessNumber', 0)
     }
   }
 });
