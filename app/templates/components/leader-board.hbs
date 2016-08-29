@@ -1,0 +1,8 @@
+<h1>High Scores</h1>
+<ul>
+{{#each sortedScores as |highscore|}}
+<li>{{highscore.username}}: {{highscore.score}}</li>
+{{else}}
+<p> No high scores have been recorded yet</p>
+{{/each}}
+</ul>

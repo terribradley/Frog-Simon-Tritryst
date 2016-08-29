@@ -37,18 +37,27 @@ export default Ember.Component.extend({
 
     guessColor(color) {
       if(this.get("buttonsLive")) {
-        var guessNum = this.get('guessNumber')
+        var guessNum = this.get('guessNumber');
         this.get("guessSequence").push(color);
         this.get("guessSequence").push("");
         if(this.get("guessSequence")[guessNum] !== this.get("correctSequence")[guessNum]) {
           this.set('guessNumber', 0);
           this.set("guessSequence", []);
           this.set("buttonsLive", false);
-          var score = ((this.get("correctSequence").length)/2)-1
+          var score = ((this.get("correctSequence").length)/2)-1;
           if(confirm("You are wrong. Your score was " + score + ". Press OK to add your score to the list of high scores")) {
-            var username = prompt("Please enter your name")
+            var username = prompt("Please enter your name:");
+            if(username !== undefined && username !== "") {
+              var params = {
+                score: score,
+                username: username,
+              };
+              this.sendAction('addHighScore', params);
+            } else {
+              alert("Sorry blank usernames are not allowed.");
+            }
           } else {
-            alert("Did not add to high scores")
+            alert("Did not add to high scores.");
           }
         } else {
           if(guessNum === this.get("correctSequence").length-2) {
@@ -73,7 +82,7 @@ export default Ember.Component.extend({
               }
             }, 1000);
           } else {
-            this.set('guessNumber', guessNum+2)
+            this.set('guessNumber', guessNum+2);
           }
         }
       }
