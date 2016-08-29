@@ -15,7 +15,7 @@ export default Ember.Component.extend({
       this.get("correctSequence").push("")
       var iterator=0
       var that= this;
-      setInterval(function(){
+      var displaySequence = setInterval(function(){
         if(that.get("correctSequence")[iterator]==="red") {
           that.set('blueOn', false);
           that.set('greenOn', false);
@@ -44,7 +44,7 @@ export default Ember.Component.extend({
         }
         iterator++;
         if(iterator === that.get("correctSequence").length){
-          clearInterval();
+          clearInterval(displaySequence);
         }
       }, 1000);
     },
@@ -52,16 +52,30 @@ export default Ember.Component.extend({
     guessColor(color) {
       this.get("guessSequence").push(color);
       this.get("guessSequence").push("");
+      console.log(this.get("guessSequence"));
+      console.log(this.get("correctSequence"));
     },
 
     submitGuess() {
-      if(1===1) {
+      var guessCorrect = true;
+      if(this.get("guessSequence").length !== this.get("correctSequence").length) {
+        guessCorrect=false;
+      }
+      else {
+        for(var i=0; i<this.get("guessSequence").length; i++) {
+          if (this.get("guessSequence")[i] !== this.get("correctSequence")[i]) {
+            guessCorrect=false;
+          }
+        }
+      }
+      if(guessCorrect) {
         var nextColor = Math.floor(Math.random() * 4);
         this.get("correctSequence").push(this.get("colors")[nextColor]);
         this.get("correctSequence").push("");
         var iterator=0
         var that= this;
-        setInterval(function(){
+        var displaySequence = setInterval(function(){
+          console.log("loop iterates: " + iterator)
           if(that.get("correctSequence")[iterator]==="red") {
             that.set('blueOn', false);
             that.set('greenOn', false);
@@ -90,14 +104,13 @@ export default Ember.Component.extend({
           }
           iterator++;
           if(iterator === that.get("correctSequence").length){
-            clearInterval();
+            clearInterval(displaySequence);
           }
         }, 1000);
-        // dothedisplay;
       } else {
-        // tell them they are wrong
+        alert("You are wrong!")
       }
+      this.set("guessSequence", [])
     }
   }
-
 });
