@@ -1,0 +1,41 @@
+<button {{action 'newGame'}}>New Game</button>
+{{#if redOn}}
+<div class="red color">
+
+</div>
+{{else}}
+<div {{action 'guessColor' "red"}} class="red color off">
+
+</div>
+{{/if}}
+{{#if blueOn}}
+<div class="blue color">
+
+</div>
+{{else}}
+<div {{action 'guessColor' "blue"}} class="blue color off">
+
+</div>
+{{/if}}
+{{#if greenOn}}
+<div class="green color">
+
+</div>
+{{else}}
+<div {{action 'guessColor' "green"}} class="green color off">
+
+</div>
+{{/if}}
+{{#if yellowOn}}
+<div class="yellow color">
+
+</div>
+{{else}}
+<div {{action 'guessColor' "yellow"}} class="yellow color off">
+
+</div>
+{{/if}}
+<div id="0">
+
+</div>
+<button {{action 'submitGuess'}}>Submit Guess</button>
