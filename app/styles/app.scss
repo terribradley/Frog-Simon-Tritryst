@@ -36,13 +36,14 @@
       z-index: -100;
     }
     .blue::after {
-      left: 180px;
+      right: -35px;
     }
     .green::after {
       left: -30px;
     }
     .blue {
       display: flex;
+      padding-right: 20px;
       justify-content: flex-end;
       width: 45%;
       z-index: 900;
@@ -50,6 +51,7 @@
     }
     .green {
       display: flex;
+      padding-left: 20px;
       justify-content: flex-start;
       width: 45%;
       z-index: 900;
@@ -67,4 +69,22 @@
       margin: 30px;
     }
   }
+}
+
+// **************animation***********//
+
+.red, .green {
+  -webkit-animation: float-lilly 4s ease-in-out infinite;
+}
+.blue {
+  -webkit-animation: float-lilly 2s ease-in-out infinite;
+}
+.yellow {
+  -webkit-animation: float-lilly 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes float-lilly {
+  50% { -webkit-transform: translateY(1px) rotate(3deg) translateX(-5px);
+    -ms-transform: translateY(1px) rotate(3deg) translateX(-5px);
+    transform: translateY(1px) rotate(3deg) translateX(-5px);}
 }
