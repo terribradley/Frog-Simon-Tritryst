@@ -19,8 +19,118 @@
     width: 100%;
     padding: 5% 0;
     background-color: #A5D5E8;
+    padding-bottom: 10%;
+    .lilly1 {
+      height: 30px;
+      width:250px;
+      position: absolute;
+      left: 10px;
+    }
+    .lilly2 {
+      height: 30px;
+      width:250px;
+      position: absolute;
+      top: 641px;
+      right: 227px;
+    }
+    .lilly3 {
+      height: 45px;
+      width: 250px;
+      position: absolute;
+      top: 604px;
+      left: 126px;
+    }
+    .lilly4 {
+      height: 45px;
+      width:250px;
+      position: absolute;
+      top: 800px;
+      left: 100px;
+    }
+    .lilly5 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 400px;
+      right: 800px;
+      z-index: 0;
+    }
+    .lilly6 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 9000px;
+      right: 150px;
+    }
+    .lilly7 {
+      height: 40px;
+      width: 250px;
+      position: absolute;
+      top: 617px;
+      left: 30px;
+    }
+    .lilly8 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 443px;
+      left: 281px;
+    }
+    .lilly9 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 815px;
+      right: 10px;
+    }
+    .lilly10 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 700px;
+      right: -73px;
+    }
+    .lilly11 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 300px;
+      left: 154px;;
+    }
+    .lilly12 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 200px;
+      right: 454px;;
+    }
+    .lilly13 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 300px;
+      right: 79px;;
+    }
+    .lilly14 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 609px;
+      right: 154px;;
+    }
+    .lilly15 {
+      height: 40px;
+      width:250px;
+      position: absolute;
+      top: 384px;
+      right: 175px;;
+    }
     img {
-    width: 400px;
+    width: 350px;
+    }
+    .color {
+      height: 300px;
+      margin: 30px 50px;
     }
     .red {
       display: flex;
@@ -28,18 +138,33 @@
       width: 100%;
       position: relative;
       z-index: 900;
+      height: 180px;
+      margin-bottom: 70px;
+      img {
+        width: 200px;
+      }
     }
-    .red::after, .yellow::after, .green::after, .blue::after {
-      content: url(../img/lillypad.png);
+    .red::after, .yellow::after, .blue::after, .green::after  {
       position: absolute;
-      bottom: -50px;
       z-index: -100;
+    }
+    .red::after {
+      content: url(../img/lillypad2.png);
+      bottom: -30px;
+    }
+    .yellow::after {
+      content: url(../img/lillypad3.png);
+      bottom: -70px;
     }
     .blue::after {
       right: -35px;
+      content: url(../img/lillypad.png);
+      bottom: -50px;
     }
     .green::after {
       left: -30px;
+      content: url(../img/lillypad.png);
+      bottom: -50px;
     }
     .blue {
       display: flex;
@@ -63,10 +188,10 @@
       width: 100%;
       z-index: 900;
       position: relative;
-    }
-    .color {
-      height: 315px;
-      margin: 30px;
+      height: 450px;
+      img {
+        width: 600px;
+      }
     }
   }
 }
@@ -74,17 +199,19 @@
 // **************animation***********//
 
 .red, .green {
-  -webkit-animation: float-lilly 4s ease-in-out infinite;
+  -webkit-animation: float-lilly 7s ease-in-out infinite;
 }
 .blue {
-  -webkit-animation: float-lilly 2s ease-in-out infinite;
+  -webkit-animation: float-lilly 4s ease-in-out infinite;
 }
 .yellow {
-  -webkit-animation: float-lilly 3s ease-in-out infinite;
+  -webkit-animation: float-lilly 5s ease-in-out infinite;
 }
 
 @-webkit-keyframes float-lilly {
-  50% { -webkit-transform: translateY(1px) rotate(3deg) translateX(-5px);
-    -ms-transform: translateY(1px) rotate(3deg) translateX(-5px);
-    transform: translateY(1px) rotate(3deg) translateX(-5px);}
+
+  30% { -webkit-transform: translateY(1px) rotate(2deg) translateX(-5px); }
+
+  75% { -webkit-transform: translateY(-1px) rotate(-2deg) translateX(5px); }
+
 }
