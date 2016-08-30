@@ -16,7 +16,7 @@
   width: 350px;
   position: absolute;
   top: 548px;
-  left: 426px;
+  left: 575px;
 }
 .lilly4 {
   height: 55px;
@@ -101,7 +101,7 @@
   width:250px;
   position: absolute;
   top: 132px;
-  right: 275px;
+  right: 375px;
 }
 .lilly16 {
   height: 40px;
@@ -197,18 +197,16 @@
 
 // **************animation***********//
 
-.lilly28, .lilly2 {
-  -webkit-animation: move-lilly 6s ease-in-out infinite;
+.lilly28, .lilly2, .lilly25, .lilly15 {
+  -webkit-animation: move-lilly 6s linear infinite;
 }
 .lilly27, .lilly4 .lilly8 .lilly22 .lilly28 {
   -webkit-animation: move-lilly 4s ease-in-out infinite;
 }
-.lilly1, .lilly3, .lilly14, .lilly19, .lilly20 {
-  -webkit-animation: move-lilly 5s ease-in-out infinite;
+.lilly1, .lilly3, .lilly14, .lilly19, .lilly20, .lilly22 {
+  -webkit-animation: move-lilly 5s linear infinite;
 }
 
 @-webkit-keyframes move-lilly {
-
   50% { -webkit-transform: translateY(9px) rotate(4deg) translateX(-9px); }
-
 }

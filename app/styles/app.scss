@@ -108,10 +108,10 @@
 // **************animation***********//
 
 .red, .green {
-  -webkit-animation: float-lilly 7s ease-in-out infinite;
+  -webkit-animation: float-lilly 6s linear infinite;
 }
 .blue {
-  -webkit-animation: float-lilly 4s ease-in-out infinite;
+  -webkit-animation: float-lilly 9s ease-in-out infinite;
 }
 .yellow {
   -webkit-animation: float-lilly 5s ease-in-out infinite;
@@ -119,7 +119,7 @@
 
 @-webkit-keyframes float-lilly {
 
-  30% { -webkit-transform: translateY(1px) rotate(2deg) translateX(-3px); }
+  25% { -webkit-transform: translateY(1px) rotate(2deg) translateX(-3px); }
 
   75% { -webkit-transform: translateY(-1px) rotate(-2deg) translateX(3px); }
 
