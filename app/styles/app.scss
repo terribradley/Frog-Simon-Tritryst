@@ -1,26 +1,60 @@
-.red {
-  background-color: red;
-  border: red solid 5px;
-}
-.blue {
-  background-color: blue;
-  border: blue solid 5px;
-}
-.green {
-  background-color: green;
-  border: green solid 5px;
-}
-.yellow {
-  background-color: yellow;
-  border: yellow solid 5px;
-}
+.frog-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 
-.color {
+
+  img {
   width: 400px;
-  height: 300px;
-  margin: 10px;
-}
 
-.off {
-  background-color: white;
+  }
+
+  .red {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 900;
+  }
+  .red::after, .yellow::after, .green::after, .blue::after {
+    content: url(../img/lillypad.png);
+    position: absolute;
+    bottom: -50px;
+    z-index: -900;
+  }
+  .blue::after {
+    left: 230px;
+  }
+  .green::after {
+    left: -30px;
+  }
+  .blue {
+    display: flex;
+    justify-content: flex-end;
+    width: 45%;
+    position: relative;
+  }
+
+  .green {
+    display: flex;
+    justify-content: flex-start;
+    width: 45%;
+    position: relative;
+  }
+  .yellow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .color {
+    height: 315px;
+    margin: 30px;
+
+  }
+
+  .off {
+
+  }
 }
