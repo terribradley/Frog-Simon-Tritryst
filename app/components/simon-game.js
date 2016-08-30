@@ -15,7 +15,10 @@ export default Ember.Component.extend({
   actions: {
 
     newGame() {
-      var la = new Audio("sounds/LA.mp3");
+      var lablue = new Audio("sounds/la-blue.mp3");
+      var lared = new Audio("sounds/la-red.mp3");
+      var lagreen = new Audio("sounds/la-green.mp3");
+      var layellow = new Audio("sounds/la-yellow.mp3");
       var firstColor = Math.floor(Math.random() * 4);
       this.set("correctSequence", [this.get("colors")[firstColor]]);
       this.get("correctSequence").push("");
@@ -29,13 +32,13 @@ export default Ember.Component.extend({
         that.set('redOn', false);
         that.set(that.get("correctSequence")[iterator]+'On', true);
         if('yellowOn') {
-          la.play();
+          layellow.play();
         } else if ('blueOn') {
-          la.play();
+          lablue.play();
         } else if ('greenOn') {
-          la.play();
+          lagreen.play();
         } else if ('redOn') {
-          la.play();
+          lared.play();
         }
         iterator++;
         if(iterator === that.get("correctSequence").length) {
@@ -46,6 +49,10 @@ export default Ember.Component.extend({
     },
 
     guessColor(color) {
+      var lablue = new Audio("sounds/la-blue.mp3");
+      var lared = new Audio("sounds/la-red.mp3");
+      var lagreen = new Audio("sounds/la-green.mp3");
+      var layellow = new Audio("sounds/la-yellow.mp3");
       if(this.get("buttonsLive")) {
         var guessNum = this.get('guessNumber');
         this.get("guessSequence").push(color);
@@ -85,6 +92,15 @@ export default Ember.Component.extend({
               that.set('yellowOn', false);
               that.set('redOn', false);
               that.set(that.get("correctSequence")[iterator]+'On', true);
+              if('yellowOn') {
+                layellow.play();
+              } else if ('blueOn') {
+                lablue.play();
+              } else if ('greenOn') {
+                lagreen.play();
+              } else if ('redOn') {
+                lared.play();
+              }
               iterator++;
               if(iterator === that.get("correctSequence").length) {
                 that.set("buttonsLive", true);
