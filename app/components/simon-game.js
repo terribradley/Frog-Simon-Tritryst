@@ -15,6 +15,7 @@ export default Ember.Component.extend({
   actions: {
 
     newGame() {
+      var la = new Audio("sounds/LA.mp3");
       var firstColor = Math.floor(Math.random() * 4);
       this.set("correctSequence", [this.get("colors")[firstColor]]);
       this.get("correctSequence").push("");
@@ -27,6 +28,15 @@ export default Ember.Component.extend({
         that.set('yellowOn', false);
         that.set('redOn', false);
         that.set(that.get("correctSequence")[iterator]+'On', true);
+        if('yellowOn') {
+          la.play();
+        } else if ('blueOn') {
+          la.play();
+        } else if ('greenOn') {
+          la.play();
+        } else if ('redOn') {
+          la.play();
+        }
         iterator++;
         if(iterator === that.get("correctSequence").length) {
           that.set("buttonsLive", true);
