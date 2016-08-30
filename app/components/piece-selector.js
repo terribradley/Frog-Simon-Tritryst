@@ -37,7 +37,7 @@ export default Ember.Component.extend({
         thirdColor = this.get("middleright");
       }
       var params = {
-        horziontal: horizontal,
+        horizontal: horizontal,
         firstColor: firstColor,
         secondColor: this.get("center"),
         thirdColor: thirdColor,

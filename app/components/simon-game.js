@@ -69,6 +69,12 @@ export default Ember.Component.extend({
             var iterator=0;
             var that = this;
             this.set("buttonsLive", false);
+            var timing = 1000;
+            if(this.get("correctSequence").length > 16) {
+              var timing = 250
+            } else if (this.get("correctSequence").length > 6) {
+              var timing = 500
+            }
             var displaySequence = setInterval(function() {
               that.set('blueOn', false);
               that.set('greenOn', false);
@@ -80,7 +86,7 @@ export default Ember.Component.extend({
                 that.set("buttonsLive", true);
                 clearInterval(displaySequence);
               }
-            }, 1000);
+            }, timing);
           } else {
             this.set('guessNumber', guessNum+2);
           }
