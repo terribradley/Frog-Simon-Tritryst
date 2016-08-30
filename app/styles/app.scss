@@ -1,60 +1,70 @@
-.frog-group {
+.wrapper {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-
-
-  img {
-  width: 400px;
-
-  }
-
-  .red {
+  flex-direction: column;
+  align-items: center;
+  .button {
     display: flex;
     justify-content: center;
+    padding: 60px;
+    background-color: #1E3A59;
+    button {
+      width: 30%;
+      padding: 10px;
+      font-size: 1.2em;
+    }
+  }
+  .frog-group {
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    position: relative;
-    z-index: 900;
-  }
-  .red::after, .yellow::after, .green::after, .blue::after {
-    content: url(../img/lillypad.png);
-    position: absolute;
-    bottom: -50px;
-    z-index: -900;
-  }
-  .blue::after {
-    left: 230px;
-  }
-  .green::after {
-    left: -30px;
-  }
-  .blue {
-    display: flex;
-    justify-content: flex-end;
-    width: 45%;
-    position: relative;
-  }
-
-  .green {
-    display: flex;
-    justify-content: flex-start;
-    width: 45%;
-    position: relative;
-  }
-  .yellow {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-  }
-
-  .color {
-    height: 315px;
-    margin: 30px;
-
-  }
-
-  .off {
-
+    padding: 5% 0;
+    background-color: #A5D5E8;
+    img {
+    width: 400px;
+    }
+    .red {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      z-index: 900;
+    }
+    .red::after, .yellow::after, .green::after, .blue::after {
+      content: url(../img/lillypad.png);
+      position: absolute;
+      bottom: -50px;
+      z-index: -100;
+    }
+    .blue::after {
+      left: 180px;
+    }
+    .green::after {
+      left: -30px;
+    }
+    .blue {
+      display: flex;
+      justify-content: flex-end;
+      width: 45%;
+      z-index: 900;
+      position: relative;
+    }
+    .green {
+      display: flex;
+      justify-content: flex-start;
+      width: 45%;
+      z-index: 900;
+      position: relative;
+    }
+    .yellow {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      z-index: 900;
+      position: relative;
+    }
+    .color {
+      height: 315px;
+      margin: 30px;
+    }
   }
 }
