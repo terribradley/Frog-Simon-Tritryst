@@ -24,3 +24,30 @@
 .off {
   background-color: white;
 }
+
+.tritile{
+  float: left;
+  margin-right: 5px;
+}
+
+.piecetile{
+  height: 30px;
+  width: 30px;
+  background-color: blue;
+  margin: 2px;
+}
+
+.corner {
+  background-color: white;
+}
+
+.lastinrow {
+  float: none;
+}
+
+.parent-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 110px;
+}
