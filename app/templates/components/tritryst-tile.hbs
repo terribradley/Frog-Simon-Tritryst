@@ -1,1 +1,8 @@
-<button>Place here</button>
+
+{{#if (eq tritileState "empty")}}
+<button {{action 'placeTile'}}>{{tritileState}}</button>
+{{else}}
+<div class="{{tritileState}} filledTile">
+
+</div>
+{{/if}}
