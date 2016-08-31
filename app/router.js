@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('tritryst');
+  this.route('moveprocessed');
+  this.route('frogsimon');
 });
 
 export default Router;

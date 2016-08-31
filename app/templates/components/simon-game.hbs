@@ -1,15 +1,62 @@
-<div class="button">
-  <button {{action 'newGame'}}>New Game</button>
+<div class="modal">
+  {{#if gameOver}}
+  {{#tether-dialog renderInPlace=true close='toggleGameOver'}}
+    <h1>Sorry, but that guess was incorrect</h1>
+    <p>Your score was {{score-calculator correctSequence.length}}. Press Ok to add your high score to the list.</p>
+    <button {{action 'toggleGameOver'}}>No Thanks</button>
+    <button {{action 'addHighScore' correctSequence.length}}>Add High Score</button>
+  {{/tether-dialog}}
+  {{/if}}
+  {{#if namePrompt}}
+  {{#tether-dialog renderInPlace=true close='toggleNamePrompt'}}
+    <p>Please Enter Your Name</p>
+    <label for="username">Name:</label>
+    {{input id="username" value=username}}
+    <button {{action 'addHighScore2' correctSequence.length}}>Add High Score</button>
+    <button {{action 'toggleNamePrompt'}}>Cancel</button>
+  {{/tether-dialog}}
+  {{/if}}
 </div>
-<section id="0">
-</section>
+<nav>
+  <button {{action 'newGame'}}>New Game</button>
+  {{leader-board highscores=highscores}}
+</nav>
+
 <section class="frog-group">
+  <img class="lilly1" src="img/lillypad2.png" alt="" />
+  <img class="lilly2" src="img/lillypad2.png" alt="" />
+  <img class="lilly3" src="img/lillypad2.png" alt="" />
+  <img class="lilly4" src="img/lillypad2.png" alt="" />
+  <img class="lilly5" src="img/lillypad2.png" alt="" />
+  <img class="lilly6" src="img/lillypad2.png" alt="" />
+  <img class="lilly7" src="img/lillypad2.png" alt="" />
+  <img class="lilly8" src="img/lillypad2.png" alt="" />
+  <img class="lilly9" src="img/lillypad2.png" alt="" />
+  <img class="lilly10" src="img/lillypad2.png" alt="" />
+  <img class="lilly11" src="img/lillypad2.png" alt="" />
+  <img class="lilly12" src="img/lillypad2.png" alt="" />
+  <img class="lilly13" src="img/lillypad2.png" alt="" />
+  <img class="lilly14" src="img/lillypad2.png" alt="" />
+  <img class="lilly15" src="img/lillypad2.png" alt="" />
+  <img class="lilly16" src="img/lillypad2.png" alt="" />
+  <img class="lilly17" src="img/lillypad2.png" alt="" />
+  <img class="lilly18" src="img/lillypad2.png" alt="" />
+  <img class="lilly19" src="img/lillypad2.png" alt="" />
+  <img class="lilly20" src="img/lillypad2.png" alt="" />
+  <img class="lilly21" src="img/lillypad2.png" alt="" />
+  <img class="lilly22" src="img/lillypad2.png" alt="" />
+  <img class="lilly23" src="img/lillypad2.png" alt="" />
+  <img class="lilly24" src="img/lillypad2.png" alt="" />
+  <img class="lilly25" src="img/lillypad2.png" alt="" />
+  <img class="lilly26" src="img/lillypad2.png" alt="" />
+  <img class="lilly27" src="img/lillypad2.png" alt="" />
+  <img class="lilly28" src="img/lillypad2.png" alt="" />
   {{#if redOn}}
   <div class="red color">
     <img src="img/frog-sing-red.png" alt="red frog" />
   </div>
   {{else}}
-  <div {{action 'guessColor' "red"}} class="red color off">
+  <div {{action 'guessColor' "red"}} class="red color off  water-one">
     <img src="img/frog-resting-red.png" alt="red frog" />
   </div>
   {{/if}}
@@ -42,32 +89,3 @@
   </div>
   {{/if}}
 </section>
-
-
-<!-- if (color==="red") {
-    lared.play();
-    this.set(this.get('redOn'), true);
-    Ember.run.later(function(){
-      this.set('redOn', false);
-    }, 100);
-  }
-
-else if (color==="yellow") {
-  layellow.play();
-  this.set(this.get('yellowOn'), true);
-  Ember.run.later(function(){
-    this.set('yellowOn', false);
-  },100);
-} else if (color==="green") {
-  lagreen.play();
-  this.set(this.get('greenOn'), true);
-  Ember.run.later(function(){
-    this.set('greenOn', false);
-  },100);
-} else if (color==="blue") {
-  lablue.play();
-  this.set(this.get('blueOn'), true);
-  Ember.run.later(function(){
-    this.set('blueOn', false);
-  },100);
-} -->

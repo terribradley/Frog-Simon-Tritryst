@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  height: 180px;
+  align-items: center;
+  background-color: #a5d5e8;
+  font-family: 'Passion One', cursive;
+
+  button {
+    width: 80%;
+    height: 60px;
+    padding: 10px;
+    font-size: 1.8em;
+    margin-left: 43%;
+    border: 2px solid #0DBF6C;
+    background-color: white;
+    letter-spacing: 2px;
+    color: #0DBF6C;
+    &:hover {
+      background-color: #0DBF6C;
+      color: white;
+    }
+  }
+  .ember-view {
+    width: 15%;
+    margin-left: 20%;
+
+  }
+}

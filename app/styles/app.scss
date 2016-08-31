@@ -1,70 +1,125 @@
+@import 'normal';
+@import 'nav';
+@import 'highscore';
+@import 'lillies';
+@import 'tritryst';
+@import 'https://fonts.googleapis.com/css?family=Anton|Passion+One';
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
+.ember-modal-dialog {
+
+}
 .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .button {
-    display: flex;
-    justify-content: center;
-    padding: 60px;
-    background-color: #1E3A59;
-    button {
-      width: 30%;
-      padding: 10px;
-      font-size: 1.2em;
-    }
-  }
-  .frog-group {
-    display: flex;
-    flex-wrap: wrap;
+  .ember-view {
     width: 100%;
-    padding: 5% 0;
-    background-color: #A5D5E8;
-    img {
-    width: 400px;
-    }
-    .red {
+    z-index: 1;
+    .frog-group {
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
       width: 100%;
-      position: relative;
-      z-index: 900;
-    }
-    .red::after, .yellow::after, .green::after, .blue::after {
-      content: url(../img/lillypad.png);
-      position: absolute;
-      bottom: -50px;
-      z-index: -100;
-    }
-    .blue::after {
-      right: -35px;
-    }
-    .green::after {
-      left: -30px;
-    }
-    .blue {
-      display: flex;
-      justify-content: flex-end;
-      width: 45%;
-      z-index: 900;
-      position: relative;
-    }
-    .green {
-      display: flex;
-      justify-content: flex-start;
-      width: 45%;
-      z-index: 900;
-      position: relative;
-    }
-    .yellow {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      z-index: 900;
-      position: relative;
-    }
-    .color {
-      height: 315px;
-      margin: 30px;
+      // height: 100vh;
+      padding: 2% 0;
+      background-color: #A5D5E8;
+      padding-bottom: 10%;
+      .color {
+        height: 30%;
+        margin: 10px;
+      }
+      .red {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        z-index:2;
+        height: 180px;
+        margin-bottom: 20px;
+        img {
+          width: 180px;
+          height: 80%;
+        }
+      }
+      .red::after, .yellow::after, .blue::after, .green::after  {
+        position: absolute;
+        z-index: -100;
+      }
+      .red::after {
+        content: url(../img/lillypad2.png);
+        bottom: 10px;
+      }
+      .yellow::after {
+        content: url(../img/lillypad3.png);
+        bottom: -40px;
+      }
+      .blue::after {
+        right: -67px;
+        content: url(../img/lillypad.png);
+        bottom: -50px;
+      }
+      .green::after {
+        left: -57px;
+        content: url(../img/lillypad.png);
+        bottom: -50px;
+      }
+      .blue {
+        display: flex;
+        justify-content: flex-end;
+        width: 40%;
+        z-index:2;
+        position: relative;
+        img {
+          width: 350px;
+          height: 250px;
+        }
+      }
+      .green {
+        display: flex;
+        justify-content: flex-start;
+        width: 40%;
+        z-index:2;
+        position: relative;
+        margin-left: 10%;
+        img {
+          width: 350px;
+          height: 250px;
+        }
+      }
+      .yellow {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      z-index:2;
+        position: relative;
+        height: 450px;
+        img {
+          width: 550px;
+          height: 95%;
+        }
+      }
     }
   }
+}
+
+// **************animation***********//
+
+.red, .green {
+  -webkit-animation: float-lilly 6s linear infinite;
+}
+.blue {
+  -webkit-animation: float-lilly 9s ease-in-out infinite;
+}
+.yellow {
+  -webkit-animation: float-lilly 5s ease-in-out infinite;
+}
+
+@-webkit-keyframes float-lilly {
+
+  25% { -webkit-transform: translateY(1px) rotate(2deg) translateX(-3px); }
+
+  75% { -webkit-transform: translateY(-1px) rotate(-2deg) translateX(3px); }
+
 }
