@@ -227,12 +227,22 @@
   left: 233px;
 }
 .fly {
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   top: -10px;
   right: 105px;
-  color: blue;
+}
+.fly2 {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 160px;
+  left: 319px;
+
+  &:hover {
+    -webkit-animation: move-fly2 5s ease-in-out;
+  }
 }
 
 // **************animation***********//
@@ -272,4 +282,9 @@
 @-webkit-keyframes move-fly {
   25% { -webkit-transform: rotate(-10deg) translateX(-30px) translateY(-90px);}
   60% {-webkit-transform: rotate(-40deg) translateX(300px) translateY(70px);}
+}
+@-webkit-keyframes move-fly2 {
+  10% { -webkit-transform: translateY(-200px) translateX(30px);}
+  30% { -webkit-transform: translateY(-210px)translateX(80px) rotate(10deg);}
+  60% { -webkit-transform: translateY(-300px)translateX(-40px);}
 }
