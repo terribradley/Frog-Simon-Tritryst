@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const Tile = Ember.Object.extend({
 
-})
+});
 
 export default Ember.Component.extend({
   score: 0,
@@ -33,7 +33,7 @@ export default Ember.Component.extend({
             //checks if center completed a vertical
             var checkSquare=location;
             if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(location-8, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(location, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(location+8, 1, Tile.create({state: this.get("thirdColor")}));
@@ -41,13 +41,13 @@ export default Ember.Component.extend({
             //checks if lefthand side completed vertical then horizontal
             checkSquare=location-1;
             if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
             }
             if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
@@ -55,13 +55,13 @@ export default Ember.Component.extend({
             //checks if righthand side completed vertical then horizontal
             checkSquare=location+1;
             if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
             }
             if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
@@ -83,7 +83,7 @@ export default Ember.Component.extend({
             //checks if center completed a horizontal
             var checkSquare=location;
             if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(location-1, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(location, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(location+1, 1, Tile.create({state: this.get("thirdColor")}));
@@ -91,13 +91,13 @@ export default Ember.Component.extend({
             //checks if upper side completed vertical then horizontal
             checkSquare=location-8;
             if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
             }
             if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
@@ -105,13 +105,13 @@ export default Ember.Component.extend({
             //checks if lower side completed vertical then horizontal
             checkSquare=location+8;
             if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
             }
             if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
-              this.set("score", this.get("score")+3)
+              this.set("score", this.get("score")+3);
               this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
               this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
               this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));

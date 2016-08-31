@@ -71,9 +71,9 @@ export default Ember.Component.extend({
             this.set("buttonsLive", false);
             var timing = 1000;
             if(this.get("correctSequence").length > 16) {
-              var timing = 250
+              timing = 250;
             } else if (this.get("correctSequence").length > 6) {
-              var timing = 500
+              timing = 500;
             }
             var displaySequence = setInterval(function() {
               that.set('blueOn', false);

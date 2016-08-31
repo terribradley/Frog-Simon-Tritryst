@@ -41,7 +41,7 @@ export default Ember.Component.extend({
         firstColor: firstColor,
         secondColor: this.get("center"),
         thirdColor: thirdColor,
-      }
+      };
       this.sendAction("selectTile", params);
     }
   }
