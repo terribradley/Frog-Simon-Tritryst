@@ -3,25 +3,29 @@
     text-transform: uppercase;
     position: relative;
     font-size: 1.8em;
+    color: #0DBF6C;
   }
   .drop-menu {
     position: absolute;
-    top: 30px;
-    left: -100px;
+    top: 50px;
+    left: -150px;
     z-index: 100000;
   }
   // **********hide/show******
   .drop-menu li {
-    font-size: 1.8em;
+    font-size: 1em;
     list-style: none;
     text-transform: uppercase;
     display: none;
+    color: #4c52b6;
   }
   .head-line:hover {
     cursor: pointer;
     perspective: 1000px;
+    color: white;
     .drop-menu li {
-      background-color: red;
+      margin-top: 30px;
+      // background-color: transparentize(white, .3);
       z-index: 90000;
       display: block;
       opacity: 0;
