@@ -3,9 +3,9 @@
 @import 'highscore';
 @import 'lillies';
 @import 'tritryst';
-
-
 @import 'https://fonts.googleapis.com/css?family=Anton|Passion+One';
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 .wrapper {
   display: flex;
