@@ -1,25 +1,37 @@
-// @import 'highscore';
+@import 'highscore';
 @import 'lillies';
 
 .wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
-  .button {
+  nav {
     display: flex;
-    justify-content: center;
-    padding: 60px;
-    background-color: #1E3A59;
+    justify-content: space-between;
+    height: 180px;
+    align-items: center;
+    background-color: #a5d5e8;
     button {
-      width: 30%;
+      width: 20%;
+      height: 60px;
       padding: 10px;
       font-size: 1.2em;
+      margin-left: 40%;
+      border: 2px solid #0DBF6C;
+      background-color: white;
+      &:hover {
+        background-color: #0DBF6C;
+        color: white;
+      }
+    }
+    .ember-view {
+      width: 20%;
     }
   }
+
   .ember-view {
     width: 100%;
+    z-index: 1;
     .frog-group {
       display: flex;
       flex-wrap: wrap;
