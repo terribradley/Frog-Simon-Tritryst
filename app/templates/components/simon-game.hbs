@@ -1,11 +1,29 @@
+<div class="modal">
+  {{#if gameOver}}
+  {{#tether-dialog renderInPlace=true close='toggleGameOver'}}
+    <h1>Sorry, but that guess was incorrect</h1>
+    <p>Your score was {{score-calculator correctSequence.length}}. Press Ok to add your high score to the list.</p>
+    <button {{action 'toggleGameOver'}}>No Thanks</button>
+    <button {{action 'addHighScore' correctSequence.length}}>Add High Score</button>
+  {{/tether-dialog}}
+  {{/if}}
+  {{#if namePrompt}}
+  {{#tether-dialog renderInPlace=true close='toggleNamePrompt'}}
+    <p>Please Enter Your Name</p>
+    <label for="username">Name:</label>
+    {{input id="username" value=username}}
+    <button {{action 'addHighScore2' correctSequence.length}}>Add High Score</button>
+    <button {{action 'toggleNamePrompt'}}>Cancel</button>
+  {{/tether-dialog}}
+  {{/if}}
+</div>
 <nav>
   <button {{action 'newGame'}}>New Game</button>
   {{leader-board highscores=highscores}}
 </nav>
+
 <section class="frog-group">
   <img class="lilly1" src="img/lillypad2.png" alt="" />
-  <img class="dragonfly3" src="img/dragonfly2.png" alt="" />
-  <img class="dragonfly4" src="img/dragonfly3.png" alt="" />
   <img class="lilly2" src="img/lillypad2.png" alt="" />
   <img class="lilly3" src="img/lillypad2.png" alt="" />
   <img class="lilly4" src="img/lillypad2.png" alt="" />
@@ -23,7 +41,6 @@
   <img class="lilly16" src="img/lillypad2.png" alt="" />
   <img class="lilly17" src="img/lillypad2.png" alt="" />
   <img class="lilly18" src="img/lillypad2.png" alt="" />
-  <img class="fly" src="img/flyblue2.png" alt="" />
   <img class="lilly19" src="img/lillypad2.png" alt="" />
   <img class="lilly20" src="img/lillypad2.png" alt="" />
   <img class="lilly21" src="img/lillypad2.png" alt="" />
@@ -32,8 +49,6 @@
   <img class="lilly24" src="img/lillypad2.png" alt="" />
   <img class="lilly25" src="img/lillypad2.png" alt="" />
   <img class="lilly26" src="img/lillypad2.png" alt="" />
-  <img class="dragonfly1" src="img/dragonfly2.png" alt="" />
-  <img class="dragonfly2" src="img/dragonfly3.png" alt="" />
   <img class="lilly27" src="img/lillypad2.png" alt="" />
   <img class="lilly28" src="img/lillypad2.png" alt="" />
   {{#if redOn}}

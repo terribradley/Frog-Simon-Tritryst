@@ -11,8 +11,32 @@ export default Ember.Component.extend({
   yellowOn: false,
   On: true,
   buttonsLive: false,
+  gameOver: false,
+  namePrompt: false,
 
   actions: {
+    toggleGameOver() {
+      this.toggleProperty('gameOver');
+    },
+
+    addHighScore() {
+      this.toggleProperty('gameOver');
+      this.toggleProperty('namePrompt');
+    },
+
+    addHighScore2(score) {
+      var username = this.get('username');
+      if(username != undefined && username != "" && username != null) {
+        var params = {
+          score: score/2-1,
+          username: username,
+        };
+        this.sendAction('addHighScore', params);
+      } else {
+        alert("Sorry blank usernames are not allowed.");
+      }
+      this.toggleProperty('namePrompt');
+    },
 
     newGame() {
       var firstColor = Math.floor(Math.random() * 4);
@@ -44,21 +68,7 @@ export default Ember.Component.extend({
           this.set('guessNumber', 0);
           this.set("guessSequence", []);
           this.set("buttonsLive", false);
-          var score = ((this.get("correctSequence").length)/2)-1;
-          if(confirm("You are wrong. Your score was " + score + ". Press OK to add your score to the list of high scores")) {
-            var username = prompt("Please enter your name:");
-            if(username !== undefined && username !== "") {
-              var params = {
-                score: score,
-                username: username,
-              };
-              this.sendAction('addHighScore', params);
-            } else {
-              alert("Sorry blank usernames are not allowed.");
-            }
-          } else {
-            alert("Did not add to high scores.");
-          }
+          this.toggleProperty('gameOver');
         } else {
           if(guessNum === this.get("correctSequence").length-2) {
             this.set('guessNumber', 0);
