@@ -2,9 +2,10 @@
 @import 'nav';
 @import 'highscore';
 @import 'lillies';
+@import 'tritryst';
 
 
-@import 'https://fonts.googleapis.com/css?family=Anton';
+@import 'https://fonts.googleapis.com/css?family=Anton|Passion+One';
 
 .wrapper {
   display: flex;
@@ -118,56 +119,4 @@
 
   75% { -webkit-transform: translateY(-1px) rotate(-2deg) translateX(3px); }
 
-}
-
-.piecetile{
-  height: 30px;
-  width: 30px;
-  background-color: blue;
-  margin: 2px;
-}
-
-.corner {
-  background-color: white;
-}
-
-.parent-container {
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 110px;
-}
-
-.tritryst {
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 410px;
-}
-
-.tri-white {
-  background-color: white;
-}
-.tri-green {
-  background-color: green;
-}
-.tri-lightblue {
-  background-color: lightblue;
-}
-.tri-darkblue {
-  background-color: darkblue;
-}
-.tri-red {
-  background-color: red;
-}
-.tri-yellow {
-  background-color: yellow;
-}
-.tri-pink {
-  background-color: pink;
-}
-
-.filledTile {
-  height: 20px;
-  width: 50px;
 }
