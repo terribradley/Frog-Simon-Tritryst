@@ -1,8 +1,14 @@
-<h1>High Scores</h1>
+<section class="high-score">
 <ul>
-{{#each sortedScores as |highscore|}}
-<li>{{highscore.username}}: {{highscore.score}}</li>
-{{else}}
-<p> No high scores have been recorded yet</p>
-{{/each}}
+  <li class="head-line">High Score</li>
+  <ul class="drop-menu">
+    {{#each sortedScores as |highscore|}}
+    <li>{{highscore.username}}: {{highscore.score}}</li>
+    {{else}}
+    <p> No high scores have been recorded yet</p>
+    {{/each}}
+  </ul>
+
 </ul>
+
+</section>
