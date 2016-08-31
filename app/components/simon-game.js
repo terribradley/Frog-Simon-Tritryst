@@ -75,9 +75,17 @@ export default Ember.Component.extend({
 
     guessColor(color) {
       var bluemp3 = new Audio("sounds/blue.mp3");
+      var bluehalfmp3 = new Audio("sounds/bluehalf.mp3");
+      var bluequartmp3 = new Audio("sounds/bluequart.mp3");
       var redmp3 = new Audio("sounds/red.mp3");
+      var redhalfmp3 = new Audio("sounds/redhalf.mp3");
+      var redquartmp3 = new Audio("sounds/redquart.mp3");
       var greenmp3 = new Audio("sounds/green.mp3");
+      var greenhalfmp3 = new Audio("sounds/greenhalf.mp3");
+      var greenquartmp3 = new Audio("sounds/greenquart.mp3");
       var yellowmp3 = new Audio("sounds/yellow.mp3");
+      var yellowhalfmp3 = new Audio("sounds/yellowhalf.mp3");
+      var yellowquartmp3 = new Audio("sounds/yellowquart.mp3");
       var that = this;
       that.set((color+'On'),true);
       Ember.run.later(function(){
@@ -116,14 +124,6 @@ export default Ember.Component.extend({
             }
             var iterator= (-1000/timing);
             this.set("buttonsLive", false);
-
-            var delayIterator = 0;
-            var turnDelay = setInterval(function() {
-              delayIterator++;
-              if(delayIterator === 2) {
-                clearInterval(turnDelay);
-              }
-            }, 1000);
             var displaySequence = setInterval(function() {
               if(iterator>=0) {
                 that.set('blueOn', false);
@@ -132,13 +132,37 @@ export default Ember.Component.extend({
                 that.set('redOn', false);
                 that.set(that.get("correctSequence")[iterator]+'On', true);
                 if(that.get('yellowOn')) {
-                  yellowmp3.play();
+                  if(timing>=1000) {
+                    yellowmp3.play();
+                  } else if (timing>=500) {
+                    yellowhalfmp3.play();
+                  } else {
+                    yellowquartmp3.play();
+                  }
                 } else if (that.get('blueOn')) {
-                  bluemp3.play();
+                  if(timing>=1000) {
+                    bluemp3.play();
+                  } else if (timing>=500) {
+                    bluehalfmp3.play();
+                  } else {
+                    bluequartmp3.play();
+                  }
                 } else if (that.get('greenOn')) {
-                  greenmp3.play();
+                  if(timing>=1000) {
+                    greenmp3.play();
+                  } else if (timing>=500) {
+                    greenhalfmp3.play();
+                  } else {
+                    greenquartmp3.play();
+                  }
                 } else if (that.get('redOn')) {
-                  redmp3.play();
+                  if(timing>=1000) {
+                    redmp3.play();
+                  } else if (timing>=500) {
+                    redhalfmp3.play();
+                  } else {
+                    redquartmp3.play();
+                  }
                 }
               }
               iterator++;
