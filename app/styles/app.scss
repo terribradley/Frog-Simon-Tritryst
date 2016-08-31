@@ -1,5 +1,7 @@
 @import 'highscore';
 @import 'lillies';
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
 
 .wrapper {
   display: flex;

@@ -2,6 +2,15 @@
   <button {{action 'newGame'}}>New Game</button>
 </div>
 {{leader-board highscores=highscores}}
+{{#if gameOver}}
+  {{#tether-dialog renderInPlace=true close='toggleGameOver'}}
+    <h1>Sorry, but that guess was incorrect</h1>
+    <p>Your score was {{score-calculator correctSequence.length}}. Press Ok to add your high score to the list.</p>
+    <button {{action 'toggleGameOver'}}>No Thanks</button>
+    <button {{action 'addHighScore' correctSequence.length}}>Add High Score</button>
+  {{/tether-dialog}}
+{{/if}}
+
 <section class="frog-group">
   <img class="lilly1" src="img/lillypad2.png" alt="" />
   <img class="lilly2" src="img/lillypad2.png" alt="" />
