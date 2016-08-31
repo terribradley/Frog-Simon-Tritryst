@@ -3,13 +3,12 @@
 @import 'highscore';
 @import 'lillies';
 @import 'tritryst';
+@import 'modal';
 @import 'https://fonts.googleapis.com/css?family=Anton|Passion+One';
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
-.ember-modal-dialog {
 
-}
 .wrapper {
   display: flex;
   flex-direction: column;
