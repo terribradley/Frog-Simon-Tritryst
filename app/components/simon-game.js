@@ -48,11 +48,21 @@ export default Ember.Component.extend({
       }, 1000);
     },
 
+
     guessColor(color) {
       var lablue = new Audio("sounds/2.mp3");
       var lared = new Audio("sounds/4.mp3");
       var lagreen = new Audio("sounds/3.mp3");
       var layellow = new Audio("sounds/1.mp3");
+      if (color==="red") {
+        lared.play();
+      } else if (color==="yellow") {
+        layellow.play();
+      } else if (color==="green") {
+        lagreen.play();
+      } else if (color==="blue") {
+        lablue.play();
+      }
       if(this.get("buttonsLive")) {
         var guessNum = this.get('guessNumber');
         this.get("guessSequence").push(color);
