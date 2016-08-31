@@ -227,8 +227,8 @@
   left: 173px;
 }
 .fly {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   position: absolute;
   top: -10px;
   right: 105px;
@@ -246,13 +246,13 @@
   -webkit-animation: move-lilly 5s linear infinite;
 }
 .dragonfly1, .dragonfly3 {
-  -webkit-animation: move-dragonfly1 300ms linear infinite;
+  -webkit-animation: move-dragonfly1 200ms linear infinite;
 }
 .dragonfly2, .dragonfly4 {
-  -webkit-animation: move-dragonfly2 300ms linear infinite;
+  -webkit-animation: move-dragonfly2 200ms linear infinite;
 }
 .fly {
-  -webkit-animation: move-fly 2s ease-in-out infinite;
+  -webkit-animation: move-fly 7s ease-in-out infinite;
 }
 
 @-webkit-keyframes move-lilly {
@@ -269,5 +269,6 @@
 }
 
 @-webkit-keyframes move-fly {
-  50% { -webkit-transform: rotate(20deg) translateX(30px);}
+  25% { -webkit-transform: rotate(-10deg) translateX(-30px) translateY(-90px);}
+  60% {-webkit-transform: rotate(-40deg) translateX(300px) translateY(70px);}
 }
