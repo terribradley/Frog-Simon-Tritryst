@@ -108,28 +108,38 @@ export default Ember.Component.extend({
             var nextColor = Math.floor(Math.random() * 4);
             this.get("correctSequence").push(this.get("colors")[nextColor]);
             this.get("correctSequence").push("");
-            var iterator=0;
-            this.set("buttonsLive", false);
             var timing = 1000;
             if(this.get("correctSequence").length > 16) {
               timing = 250;
             } else if (this.get("correctSequence").length > 6) {
               timing = 500;
             }
+            var iterator= (-1000/timing);
+            this.set("buttonsLive", false);
+
+            var delayIterator = 0;
+            var turnDelay = setInterval(function() {
+              delayIterator++;
+              if(delayIterator === 2) {
+                clearInterval(turnDelay);
+              }
+            }, 1000);
             var displaySequence = setInterval(function() {
-              that.set('blueOn', false);
-              that.set('greenOn', false);
-              that.set('yellowOn', false);
-              that.set('redOn', false);
-              that.set(that.get("correctSequence")[iterator]+'On', true);
-              if(that.get('yellowOn')) {
-                yellowmp3.play();
-              } else if (that.get('blueOn')) {
-                bluemp3.play();
-              } else if (that.get('greenOn')) {
-                greenmp3.play();
-              } else if (that.get('redOn')) {
-                redmp3.play();
+              if(iterator>=0) {
+                that.set('blueOn', false);
+                that.set('greenOn', false);
+                that.set('yellowOn', false);
+                that.set('redOn', false);
+                that.set(that.get("correctSequence")[iterator]+'On', true);
+                if(that.get('yellowOn')) {
+                  yellowmp3.play();
+                } else if (that.get('blueOn')) {
+                  bluemp3.play();
+                } else if (that.get('greenOn')) {
+                  greenmp3.play();
+                } else if (that.get('redOn')) {
+                  redmp3.play();
+                }
               }
               iterator++;
               if(iterator === that.get("correctSequence").length) {
