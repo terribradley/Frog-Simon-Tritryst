@@ -1,10 +1,19 @@
 <div class="modal">
   {{#if gameOver}}
   {{#tether-dialog renderInPlace=true close='toggleGameOver'}}
-  <h1>Sorry, but that guess was incorrect</h1>
-  <p>Your score was {{score-calculator correctSequence.length}}. Press Ok to add your high score to the list.</p>
-  <button {{action 'toggleGameOver'}}>No Thanks</button>
-  <button {{action 'addHighScore' correctSequence.length}}>Add High Score</button>
+    <h1>Sorry, but that guess was incorrect</h1>
+    <p>Your score was {{score-calculator correctSequence.length}}. Press Ok to add your high score to the list.</p>
+    <button {{action 'toggleGameOver'}}>No Thanks</button>
+    <button {{action 'addHighScore' correctSequence.length}}>Add High Score</button>
+  {{/tether-dialog}}
+  {{/if}}
+  {{#if namePrompt}}
+  {{#tether-dialog renderInPlace=true close='toggleNamePrompt'}}
+    <p>Please Enter Your Name</p>
+    <label for="username">Name:</label>
+    {{input id="username" value=username}}
+    <button {{action 'addHighScore2' correctSequence.length}}>Add High Score</button>
+    <button {{action 'toggleNamePrompt'}}>Cancel</button>
   {{/tether-dialog}}
   {{/if}}
 </div>

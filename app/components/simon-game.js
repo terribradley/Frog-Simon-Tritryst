@@ -12,6 +12,7 @@ export default Ember.Component.extend({
   On: true,
   buttonsLive: false,
   gameOver: false,
+  namePrompt: false,
 
   actions: {
     toggleGameOver() {
@@ -19,19 +20,22 @@ export default Ember.Component.extend({
     },
 
     addHighScore() {
-      var score = ((this.get("correctSequence").length)/2)-1;
-      var username = prompt("Please enter your name:");
-      console.log(username)
+      this.toggleProperty('gameOver');
+      this.toggleProperty('namePrompt');
+    },
+
+    addHighScore2(score) {
+      var username = this.get('username');
       if(username != undefined && username != "" && username != null) {
         var params = {
-          score: score,
+          score: score/2-1,
           username: username,
         };
         this.sendAction('addHighScore', params);
       } else {
         alert("Sorry blank usernames are not allowed.");
       }
-      this.toggleProperty('gameOver');
+      this.toggleProperty('namePrompt');
     },
 
     newGame() {
