@@ -196,6 +196,44 @@
   right: 120px;
 }
 
+.dragonfly1 {
+  width: 95px;
+  height: 94px;
+  position: absolute;
+  top: 305px;
+  right: 355px;
+}
+.dragonfly2 {
+  opacity: 0;
+  width: 117px;
+  height: 94px;
+  position: absolute;
+  top: 305px;
+  right: 355px;
+}
+.dragonfly3 {
+  width: 90px;
+  height: 89px;
+  position: absolute;
+  top: -105px;
+  left: 195px;
+}
+.dragonfly4 {
+  opacity: 0;
+  width: 112px;
+  height: 89px;
+  position: absolute;
+  top: -105px;
+  left: 173px;
+}
+.fly {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -10px;
+  right: 105px;
+}
+
 // **************animation***********//
 
 .lilly28, .lilly2, .lilly25, .lilly15 {
@@ -207,7 +245,29 @@
 .lilly1, .lilly3, .lilly14, .lilly19, .lilly20, .lilly22 {
   -webkit-animation: move-lilly 5s linear infinite;
 }
+.dragonfly1, .dragonfly3 {
+  -webkit-animation: move-dragonfly1 300ms linear infinite;
+}
+.dragonfly2, .dragonfly4 {
+  -webkit-animation: move-dragonfly2 300ms linear infinite;
+}
+.fly {
+  -webkit-animation: move-fly 2s ease-in-out infinite;
+}
 
 @-webkit-keyframes move-lilly {
   50% { -webkit-transform: translateY(9px) rotate(4deg) translateX(-9px); }
+}
+
+@-webkit-keyframes move-dragonfly1 {
+  0% { opacity: 1 }
+  100% { opacity: 0 }
+}
+@-webkit-keyframes move-dragonfly2 {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+@-webkit-keyframes move-fly {
+  50% { -webkit-transform: rotate(20deg) translateX(30px);}
 }
