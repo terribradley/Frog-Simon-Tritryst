@@ -15,10 +15,10 @@ export default Ember.Component.extend({
   actions: {
 
     newGame() {
-      var lablue = new Audio("sounds/la-blue.mp3");
-      var lared = new Audio("sounds/la-red.mp3");
-      var lagreen = new Audio("sounds/la-green.mp3");
-      var layellow = new Audio("sounds/la-yellow.mp3");
+      var lablue = new Audio("sounds/2.mp3");
+      var lared = new Audio("sounds/4.mp3");
+      var lagreen = new Audio("sounds/3.mp3");
+      var layellow = new Audio("sounds/1.mp3");
       var firstColor = Math.floor(Math.random() * 4);
       this.set("correctSequence", [this.get("colors")[firstColor]]);
       this.get("correctSequence").push("");
@@ -31,13 +31,13 @@ export default Ember.Component.extend({
         that.set('yellowOn', false);
         that.set('redOn', false);
         that.set(that.get("correctSequence")[iterator]+'On', true);
-        if('yellowOn') {
+        if(that.get('yellowOn')) {
           layellow.play();
-        } else if ('blueOn') {
+        } else if (that.get('blueOn')) {
           lablue.play();
-        } else if ('greenOn') {
+        } else if (that.get('greenOn')) {
           lagreen.play();
-        } else if ('redOn') {
+        } else if (that.get('redOn')) {
           lared.play();
         }
         iterator++;
@@ -49,10 +49,10 @@ export default Ember.Component.extend({
     },
 
     guessColor(color) {
-      var lablue = new Audio("sounds/la-blue.mp3");
-      var lared = new Audio("sounds/la-red.mp3");
-      var lagreen = new Audio("sounds/la-green.mp3");
-      var layellow = new Audio("sounds/la-yellow.mp3");
+      var lablue = new Audio("sounds/2.mp3");
+      var lared = new Audio("sounds/4.mp3");
+      var lagreen = new Audio("sounds/3.mp3");
+      var layellow = new Audio("sounds/1.mp3");
       if(this.get("buttonsLive")) {
         var guessNum = this.get('guessNumber');
         this.get("guessSequence").push(color);
@@ -92,13 +92,13 @@ export default Ember.Component.extend({
               that.set('yellowOn', false);
               that.set('redOn', false);
               that.set(that.get("correctSequence")[iterator]+'On', true);
-              if('yellowOn') {
+              if(that.get('yellowOn')) {
                 layellow.play();
-              } else if ('blueOn') {
+              } else if (that.get('blueOn')) {
                 lablue.play();
-              } else if ('greenOn') {
+              } else if (that.get('greenOn')) {
                 lagreen.play();
-              } else if ('redOn') {
+              } else if (that.get('redOn')) {
                 lared.play();
               }
               iterator++;
