@@ -1,0 +1,22 @@
+
+
+.ember-modal-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Passion One', cursive;
+  color: #4c52b6;
+  font-size: 1.2em;
+  padding: 20px;
+  button {
+    width: 30%;
+    height: 30px;
+    margin: 10px;
+    border: 2px solid #4c52b6;
+    background-color: white;
+    color: #4c52b6;
+  }
+  #username {
+    width: 30%;
+  }
+}
