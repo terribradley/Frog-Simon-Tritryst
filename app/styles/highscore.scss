@@ -1,0 +1,17 @@
+.head-line {
+  list-style: none;
+  text-transform: uppercase;
+}
+.drop-menu li {
+  font-size: 1.8em;
+  list-style: none;
+  text-transform: uppercase;
+
+}
+
+.head-line:hover {
+  li {
+    background-color: blue;
+
+  }
+}
