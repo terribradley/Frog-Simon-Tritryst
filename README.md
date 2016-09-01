@@ -1,7 +1,6 @@
 # Js-team-week
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This application hosts two games, FrogSimon and Tritryst, to entertain the user. FrogSimon is a memory game that requires users to recreate a sequence that is displayed by our frogs. Tritryst is a spatial game where users place blocks and try to make rows of 3.
 
 ## Prerequisites
 
@@ -50,4 +49,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
