@@ -69,7 +69,7 @@ export default Ember.Component.extend({
           that.set("buttonsLive", true);
           clearInterval(displaySequence);
         }
-      }, 1000);
+      }, 700);
     },
 
 
@@ -90,15 +90,15 @@ export default Ember.Component.extend({
       that.set((color+'On'),true);
       Ember.run.later(function(){
         that.set((color+'On'),false);
-        }, 1000);
+      }, 700);
       if (color === "red") {
-        redmp3.play();
+        redhalfmp3.play();
       } else if (color === "blue") {
-        bluemp3.play();
+        bluehalfmp3.play();
       } else if (color === "yellow") {
-        yellowmp3.play();
+        yellowhalfmp3.play();
       } else if (color === "green") {
-        greenmp3.play();
+        greenhalfmp3.play();
       }
       if(this.get("buttonsLive")) {
         var guessNum = this.get('guessNumber');
