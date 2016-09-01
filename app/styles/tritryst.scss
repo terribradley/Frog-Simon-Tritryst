@@ -1,4 +1,11 @@
-.piecetile{
+.parent-container {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 110px;
+}
+
+.piecetile {
   height: 30px;
   width: 30px;
   background-color: blue;
@@ -9,43 +16,44 @@
   background-color: white;
 }
 
-.parent-container {
-  margin: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  width: 110px;
-}
-
 .tritryst {
-  margin: 20px;
   display: flex;
   flex-wrap: wrap;
-  width: 410px;
+  margin: 20px;
+  width: 500px;
+  border: 1px solid black;
+  .ember-view {
+    z-index:0 !important;
+    margin: 1px;
+    width: 60px !important;
+  }
 }
 
 .tri-white {
+  z-index: 10;
   background-color: white;
 }
 .tri-green {
+  z-index: 10;
   background-color: green;
 }
 .tri-lightblue {
+  z-index: 10;
   background-color: lightblue;
 }
 .tri-darkblue {
+  z-index: 10;
   background-color: darkblue;
 }
 .tri-red {
+  z-index: 10;
   background-color: red;
 }
 .tri-yellow {
+  z-index: 10;
   background-color: yellow;
 }
 .tri-pink {
+  z-index: 10;
   background-color: pink;
-}
-
-.filledTile {
-  height: 20px;
-  width: 50px;
 }
