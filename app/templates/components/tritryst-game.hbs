@@ -2,7 +2,9 @@
   <header>
     {{#link-to 'index'}}Home Page{{/link-to}} <h1>Tritryst</h1>
   </header>
-  {{tritryst-score-display score=score}}  
+  <div class="score">
+    {{tritryst-score-display score=score}}    
+  </div>
   <section class="tritryst">
     {{tritryst-tile placeTile="placeTile" boardstate=boardstate location=0}}
     {{tritryst-tile placeTile="placeTile" boardstate=boardstate location=1}}
