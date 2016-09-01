@@ -11,6 +11,10 @@ export default Ember.Component.extend({
   secondColor: "empty",
   thirdColor: "empty",
 
+  totalScore: Ember.computed('score', function() {
+    return this.get('score');
+  }),
+
   boardstate: [Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"}), Tile.create({state: "empty"})],
 
   actions: {
@@ -32,40 +36,102 @@ export default Ember.Component.extend({
             this.get("boardstate").splice(location+1, 1, Tile.create({state: this.get("thirdColor")}));
             //checks if center completed a vertical
             var checkSquare=location;
-            if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare>7 && checkSquare<56 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(location-8, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(location, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(location+8, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
+            }
+            if(checkSquare<48 && this.get("boardstate")[checkSquare+16].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+16, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
+            }
+            if(checkSquare>15 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-16].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-16, 1, Tile.create({state: "empty"}));
             }
             //checks if lefthand side completed vertical then horizontal
             checkSquare=location-1;
-            if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare>7 && checkSquare<56 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
-            if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare<48 && this.get("boardstate")[checkSquare+16].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare+16, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
+            }
+            if(checkSquare>15 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-16].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-16, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 7 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 1 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-2, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==7 && location%8 !== 6 && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+2, 1, Tile.create({state: "empty"}));
             }
             //checks if righthand side completed vertical then horizontal
             checkSquare=location+1;
-            if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare>7 && checkSquare<56 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
-            if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare<48 && this.get("boardstate")[checkSquare+16].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare+16, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
+            if(checkSquare>15 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-16].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-16, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 7 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 1 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-2, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==7 && location%8 !== 6 && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+2, 1, Tile.create({state: "empty"}));
+            }
+            this.set("score", this.get("score")+3)
+            console.log(this.get("score"))
             this.sendAction('processMove');
           } else {
             alert("Not a valid space (overlaps an existing color)");
@@ -82,40 +148,102 @@ export default Ember.Component.extend({
             this.get("boardstate").splice(location+8, 1, Tile.create({state: this.get("thirdColor")}));
             //checks if center completed a horizontal
             var checkSquare=location;
-            if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
+            if(location%8!==0 && location%8 !== 7 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(location-1, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(location, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(location+1, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 1 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-2, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==7 && location%8 !== 6 && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+2, 1, Tile.create({state: "empty"}));
             }
             //checks if upper side completed vertical then horizontal
             checkSquare=location-8;
-            if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare>7 && checkSquare<56 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
-            if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare<48 && this.get("boardstate")[checkSquare+16].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare+16, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
+            }
+            if(checkSquare>15 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-16].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-16, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 7 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 1 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-2, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==7 && location%8 !== 6 && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+2, 1, Tile.create({state: "empty"}));
             }
             //checks if lower side completed vertical then horizontal
             checkSquare=location+8;
-            if(this.get("boardstate")[checkSquare-8].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare>7 && checkSquare<56 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
-            if(this.get("boardstate")[checkSquare-1].state===this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state===this.get("boardstate")[checkSquare].state) {
+            if(checkSquare<48 && this.get("boardstate")[checkSquare+16].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+8].state === this.get("boardstate")[checkSquare].state) {
               this.set("score", this.get("score")+3);
-              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: this.get("firstColor")}));
-              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: this.get("secondColor")}));
-              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: this.get("thirdColor")}));
+              this.get("boardstate").splice(checkSquare+16, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+8, 1, Tile.create({state: "empty"}));
             }
+            if(checkSquare>15 && this.get("boardstate")[checkSquare-8].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-16].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-8, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-16, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 7 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==0 && location%8 !== 1 && this.get("boardstate")[checkSquare-1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare-2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare-1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare-2, 1, Tile.create({state: "empty"}));
+            }
+            if(location%8!==7 && location%8 !== 6 && this.get("boardstate")[checkSquare+1].state === this.get("boardstate")[checkSquare].state && this.get("boardstate")[checkSquare+2].state === this.get("boardstate")[checkSquare].state) {
+              this.set("score", this.get("score")+3);
+              this.get("boardstate").splice(checkSquare+1, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare, 1, Tile.create({state: "empty"}));
+              this.get("boardstate").splice(checkSquare+2, 1, Tile.create({state: "empty"}));
+            }
+            this.set("score", this.get("score")+3)
+            console.log(this.get("score"))
             this.sendAction('processMove');
           } else {
             alert("Not a valid space (overlaps an existing color)");
