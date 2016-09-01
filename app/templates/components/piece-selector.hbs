@@ -1,4 +1,5 @@
-<div class="parent-container">
+
+<div class="orientation">
   <div class="piecetile corner"></div>
   <div class="piecetile {{uppermiddle}}"></div>
   <div class="piecetile lastinrow corner"></div>
@@ -8,7 +9,9 @@
   <div class="piecetile corner"></div>
   <div class="piecetile {{lowermiddle}}"></div>
   <div class="piecetile lastinrow corner"></div>
-  <button {{action 'newTile'}}>New Tile</button>
-  <button {{action 'rotate'}}>Rotate</button>
-  <button {{action 'selectTile'}}>Select Tile</button>
+  <div class="buttons">
+    <button {{action 'newTile'}}>New Tile</button>
+    <button {{action 'rotate'}}>Rotate</button>
+    <button {{action 'selectTile'}}>Select Tile</button>
+  </div>
 </div>

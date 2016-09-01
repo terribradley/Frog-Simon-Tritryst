@@ -3,7 +3,7 @@
     text-transform: uppercase;
     position: relative;
     font-size: 1.8em;
-    color: #0DBF6C;
+    color: $color-green;
   }
   .drop-menu {
     position: absolute;
@@ -17,7 +17,7 @@
     list-style: none;
     text-transform: uppercase;
     display: none;
-    color: #4c52b6;
+    color: $color-med-blue;
   }
   .head-line:hover {
     cursor: pointer;

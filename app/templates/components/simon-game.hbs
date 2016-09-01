@@ -18,6 +18,7 @@
   {{/if}}
 </div>
 <nav>
+  {{#link-to 'index'}}Home Page{{/link-to}}
   <button {{action 'newGame'}}>New Game</button>
   {{leader-board highscores=highscores}}
 </nav>
