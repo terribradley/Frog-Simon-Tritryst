@@ -1,6 +1,6 @@
 html {
   height: 100vh;
-  background-color: #B7EDE0;
+  background-color: $color-turq;
 }
 .homepage {
   width: 100%;
@@ -18,12 +18,12 @@ html {
     text-decoration: none;
     font-family: 'Passion One', cursive;
     padding-left: 2%;
-    color: #4c52b6;
+    color: $color-med-blue;
     &:first-of-type {
       text-align: center;
     }
     &:hover {
-      color: #6dcdca;
+      color: $color-light-turq;
     }
   }
 }
