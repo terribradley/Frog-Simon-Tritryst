@@ -1,6 +1,11 @@
 # Js-team-week
+Charles Ewel, Terri Bradley and Georgina Van Dort
 
-This application hosts two games, FrogSimon and Tritryst, to entertain the user. FrogSimon is a memory game that requires users to recreate a sequence that is displayed by our frogs. Tritryst is a spatial game where users place blocks and try to make rows of 3.
+##Frog Simon
+This is a new twist on the old Simon game. Click on the frogs to make them sing.
+
+##Tritryst
+A JavaScript clone of the old Windows '95 game. Rotate tiles and place them on a grid. Match 3 of the same color to reclaim grid space and up your score.
 
 ## Prerequisites
 
@@ -24,6 +29,7 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
+<<<<<<< HEAD
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
@@ -49,3 +55,6 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+=======
+* Enjoy!
+>>>>>>> 56e00661ef9c34e880107c07e77ba106e02f3c8d
