@@ -1,30 +1,39 @@
 .piece-selection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-  .orientation {
+  .ember-view {
     display: flex;
-    flex-wrap: wrap;
-    width: 110px;
-    margin: 0;
-    .piecetile {
-      height: 30px;
-      width: 30px;
-      background-color: blue;
-      margin: 2px;
-    }
-    .corner {
-      background-color: $color-turq;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .orientation {
+      display: flex;
+      flex-wrap: wrap;
+      width: 110px;
+      margin-bottom: 5%;
+      .piecetile {
+        height: 30px;
+        width: 30px;
+        background-color: $color-turq;
+        margin: 2px;
+      }
+      .corner {
+        background-color: $color-turq;
+      }
     }
     .buttons {
       display: flex;
+      justify-content: center;
       button {
         width: 200px;
         border: 2px solid $color-med-blue;
         padding: 10px;
         margin-right: 20px;
         background-color: $color-turq;
+        color: $color-med-blue;
+        &:hover {
+          background-color: $color-med-blue;
+          color: $color-white;
+        }
       }
     }
   }
@@ -70,29 +79,36 @@
 
 .tri-white {
   z-index: 10;
-  background-color: white;
+  background-image: url("../img/pebbles/1.png");
+  background-repeat: no-repeat;
 }
 .tri-green {
   z-index: 10;
-  background-color: green;
+  background-image: url("../img/pebbles/2.png");
+  background-repeat: no-repeat;
 }
 .tri-lightblue {
   z-index: 10;
-  background-color: lightblue;
+  background-image: url("../img/pebbles/3.png");
+  background-repeat: no-repeat;
 }
 .tri-darkblue {
   z-index: 10;
-  background-color: darkblue;
+  background-image: url("../img/pebbles/4.png");
+  background-repeat: no-repeat;
 }
 .tri-red {
   z-index: 10;
-  background-color: red;
+  background-image: url("../img/pebbles/5.png");
+  background-repeat: no-repeat;
 }
 .tri-yellow {
   z-index: 10;
-  background-color: yellow;
+  background-image: url("../img/pebbles/6.png");
+  background-repeat: no-repeat;
 }
 .tri-pink {
   z-index: 10;
-  background-color: pink;
+  background-image: url("../img/pebbles/7.png");
+  background-repeat: no-repeat;
 }
