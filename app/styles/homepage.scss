@@ -11,17 +11,17 @@ html {
   img {
     width: 120px;
     -webkit-animation: home-frog 3s ease-in-out infinite;
+    &:first-of-type {
+      margin-left: 30%;
+    }
   }
-  a {
+  a.ember-view {
     width: 400px;
     font-size: 3em;
     text-decoration: none;
     font-family: 'Passion One', cursive;
     padding-left: 2%;
     color: $color-med-blue;
-    &:first-of-type {
-      text-align: center;
-    }
     &:hover {
       color: $color-light-turq;
     }
@@ -29,9 +29,7 @@ html {
 }
 
 @-webkit-keyframes home-frog {
-
-  25% { -webkit-transform: rotate(10deg);  }
-
-  75% { -webkit-transform: rotate(-10deg); }
-
+  0% {-webkit-transform:rotate(8deg);}
+  50% {-webkit-transform:rotate(-8deg);}
+  100% {-webkit-transform:rotate(8deg);}
 }

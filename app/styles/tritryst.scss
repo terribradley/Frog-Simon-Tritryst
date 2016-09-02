@@ -1,30 +1,39 @@
 .piece-selection {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-  .orientation {
+  .ember-view {
     display: flex;
-    flex-wrap: wrap;
-    width: 110px;
-    margin: 0;
-    .piecetile {
-      height: 30px;
-      width: 30px;
-      background-color: blue;
-      margin: 2px;
-    }
-    .corner {
-      background-color: $color-turq;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .orientation {
+      display: flex;
+      flex-wrap: wrap;
+      width: 150px;
+      margin-bottom: 2%;
+      .piecetile {
+        height: 45px;
+        width: 45px;
+        background-color: $color-turq;
+        margin: 2px;
+      }
+      .corner {
+        background-color: $color-turq;
+      }
     }
     .buttons {
       display: flex;
+      justify-content: center;
       button {
         width: 200px;
         border: 2px solid $color-med-blue;
         padding: 10px;
         margin-right: 20px;
         background-color: $color-turq;
+        color: $color-med-blue;
+        &:hover {
+          background-color: $color-med-blue;
+          color: $color-white;
+        }
       }
     }
   }
@@ -35,6 +44,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  .score {
+    font-family: 'Passion One', cursive;
+    font-size: 1.8em;
+    color: $color-med-blue;
+  }
   header {
     display: flex;
     align-items: center;
@@ -49,50 +63,75 @@
       padding-left: 100px;
     }
     h1 {
-      width: 150%;
+      width: 140%;
       margin: 0;
       color: $color-med-blue;
+      font-size: 3em;
     }
+  }
+  .emptyTile {
+    background-color: $color-turq;
+    border: 1px solid $color-med-blue;
+    height: 100%;
+    width: 100%;
   }
 }
 .tritryst {
   display: flex;
   flex-wrap: wrap;
   margin: 20px;
-  width: 500px;
+  width: 496px;
   border: 1px solid black;
   .ember-view {
     z-index:0 !important;
     margin: 1px;
     width: 60px !important;
+    height: 60px!important;
+    .filledTile {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
 .tri-white {
   z-index: 10;
-  background-color: $color-turq !important;
+  background-color: $color-turq;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-green {
   z-index: 10;
-  background-color: green !important;
+  background-image: url("../img/pebbles/2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
 .tri-lightblue {
   z-index: 10;
-  background-color: lightblue !important;
+  background-image: url("../img/pebbles/3.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-darkblue {
   z-index: 10;
-  background-color: darkblue !important;
+  background-image: url("../img/pebbles/4.png");
+  background-repeat: no-repeat;
 }
 .tri-red {
   z-index: 10;
-  background-color: red !important;
+  background-image: url("../img/pebbles/5.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-yellow {
   z-index: 10;
-  background-color: yellow !important;
+  background-image: url("../img/pebbles/6.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-pink {
   z-index: 10;
-  background-color: pink !important;
-}
+  background-image: url("../img/pebbles/1.png");
+  background-repeat: no-repeat;
+  background-position: center;
