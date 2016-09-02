@@ -8,11 +8,11 @@
     .orientation {
       display: flex;
       flex-wrap: wrap;
-      width: 110px;
-      margin-bottom: 5%;
+      width: 150px;
+      margin-bottom: 2%;
       .piecetile {
-        height: 30px;
-        width: 30px;
+        height: 45px;
+        width: 45px;
         background-color: $color-turq;
         margin: 2px;
       }
@@ -69,34 +69,49 @@
       font-size: 3em;
     }
   }
+  .emptyTile {
+    background-color: $color-turq;
+    border: 1px solid $color-med-blue;
+    height: 100%;
+    width: 100%;
+  }
 }
 .tritryst {
   display: flex;
   flex-wrap: wrap;
   margin: 20px;
-  width: 500px;
+  width: 496px;
   border: 1px solid black;
   .ember-view {
     z-index:0 !important;
     margin: 1px;
     width: 60px !important;
+    height: 60px!important;
+    .filledTile {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
 .tri-white {
   z-index: 10;
-  background-image: url("../img/pebbles/1.png");
+  background-color: $color-turq;
   background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-green {
   z-index: 10;
   background-image: url("../img/pebbles/2.png");
   background-repeat: no-repeat;
+  background-position: center;
+
 }
 .tri-lightblue {
   z-index: 10;
   background-image: url("../img/pebbles/3.png");
   background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-darkblue {
   z-index: 10;
@@ -107,14 +122,17 @@
   z-index: 10;
   background-image: url("../img/pebbles/5.png");
   background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-yellow {
   z-index: 10;
   background-image: url("../img/pebbles/6.png");
   background-repeat: no-repeat;
+  background-position: center;
 }
 .tri-pink {
   z-index: 10;
-  background-image: url("../img/pebbles/7.png");
+  background-image: url("../img/pebbles/1.png");
   background-repeat: no-repeat;
+  background-position: center;
 }

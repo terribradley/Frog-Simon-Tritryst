@@ -1,7 +1,7 @@
 
 {{#if (eq tritileState "empty")}}
   <div class="filledTile">
-    <button {{action 'placeTile'}}>{{tritileState}}</button>
+    <button class="emptyTile" {{action 'placeTile'}}>&nbsp;</button>
   </div>
 {{else}}
   <div class="{{tritileState}} filledTile">
