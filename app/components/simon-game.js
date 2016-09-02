@@ -117,9 +117,9 @@ export default Ember.Component.extend({
             this.get("correctSequence").push(this.get("colors")[nextColor]);
             this.get("correctSequence").push("");
             var timing = 1000;
-            if(this.get("correctSequence").length > 16) {
+            if(this.get("correctSequence").length > 8) {
               timing = 250;
-            } else if (this.get("correctSequence").length > 6) {
+            } else if (this.get("correctSequence").length > 4) {
               timing = 500;
             }
             var iterator= (-1000/timing);
