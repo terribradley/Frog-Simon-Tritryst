@@ -29,7 +29,6 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-<<<<<<< HEAD
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details
@@ -55,6 +54,9 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
 =======
-* Enjoy!
->>>>>>> 56e00661ef9c34e880107c07e77ba106e02f3c8d
+
+## Copyright
+
+Copyright 2016 under MIT License
